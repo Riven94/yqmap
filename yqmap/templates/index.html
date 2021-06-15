@@ -1,0 +1,79 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}"><!-- Animate Min CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}"><!-- Flaticon CSS -->
+<link rel="stylesheet" href="{% static 'assets/fonts/flaticon.css' %}"><!-- Boxicons CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/boxicons.min.css' %}"><!-- Magnific Popup CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}"><!-- Owl Carousel Min CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css' %}"><!-- Nice Select Min CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/nice-select.min.css' %}"><!-- Meanmenu CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/meanmenu.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+
+<div class="blog-area pt-100 pb-70 section-bg">
+    <div class="container">
+        <div class="section-title text-center">
+            <h2>新闻列表</h2>
+            <p class="margin-auto">这里是新冠疫情的最新动态</p>
+        </div>
+                        <form class="input-group" method="get" action="">
+                            <input type="text" class="form-control" name="q" placeholder="输入搜索内容...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">搜索</button>
+                            </span>
+                            {% csrf_token %}
+                        </form>
+
+        <div class="row pt-45">
+            {% for new in new_list %}
+                    <div class="col-lg-4 col-md-6 offset-lg-0 offset-md-3">
+                        <div class="blog-card">
+                            <div class="blog-img">
+
+                                <div class="blog-card">
+                                    <h2>{{ new.title }}</h2>
+                                    <p>{{ new.timestamp }}</p>
+                                    <p>{{ new.body }}</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endfor %}
+
+
+            <div class="container large">
+                    <div class="pagination">
+                                <ul>
+                        {% if news.has_previous %}
+                            <a href="?page={{ news.previous_page_number }}" aria-label="Previous">
+                                <span class="pagination-area">&nbsp;&laquo;上一页&nbsp;</span>
+                            </a>
+                        {% endif %}
+
+                        {% if news.paginator.num_pages > 1 %}
+                            {% for pg in news.paginator.page_range %}
+                                {% if news.number ==  pg  %}
+                                    <strong>
+                                        <span class="pagination-area">&nbsp;&nbsp;{{ pg }}&nbsp;&nbsp;</span>
+                                    </strong>
+                                {% else %}
+                                    <a href="?page={{ pg }}">
+                                        <span class="pagination-area">&nbsp;&nbsp;{{ pg }}&nbsp;&nbsp;</span>
+                                    </a>
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+
+                        {% if news.has_next %}
+                            <a href="?page={{ news.next_page_number }}" aria-label="Next">
+                                <span class="pagination-area">&nbsp;下一页&raquo;&nbsp;</span>
+                            </a>
+                        {% endif %}
+                    </ul>
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>

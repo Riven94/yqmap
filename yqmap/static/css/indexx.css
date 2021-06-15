@@ -1,0 +1,46 @@
+.input{
+border: 1px solid #ECECEC;
+color: #000;
+height: 30px;
+margin-bottom: 0px;
+margin-right: 6px;
+margin-top: 20px;
+outline: 0 none;
+padding: 3px 3px 3px 5px;
+width: 15%;
+font-size: 12px;
+line-height:15px;
+border-radius: 4px;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+box-shadow: inset 0px 1px 4px #ECECEC;
+-moz-box-shadow: inset 0px 1px 4px #ECECEC;
+-webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+}
+.Button {
+background: #E27575;
+border: none;
+padding: 3px 10px 3px 5px;
+color: #FFF;
+box-shadow: 1px 1px 5px #B6B6B6;
+border-radius: 3px;
+text-shadow: white;
+cursor: pointer;
+}
+.button {
+background: #E27575;
+border: 0;
+padding: 5px 15px 5px 15px;
+margin-top: 20px;
+margin-right: 600px;
+color: #FFF;
+box-shadow: 1px 1px 5px #B6B6B6;
+border-radius: 3px;
+margin-right: 300px;
+text-shadow: 1px 1px 1px #9E3F3F;
+text-shadow: white;
+cursor: pointer;
+}
+.button:hover {
+background: #CF7A7A
+}
